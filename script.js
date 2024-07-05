@@ -6,9 +6,14 @@ const randomColor = function () {
    }
    return color;
 };
+
+
 let change;
 document.querySelector('#start').addEventListener('click', function(){
-     change = setInterval(changeBg, 1000);
+    if(!change){
+        change = setInterval(changeBg, 100);
+
+    }
 
     function changeBg(){
         document.body.style.backgroundColor = randomColor();
@@ -20,4 +25,5 @@ document.querySelector('#start').addEventListener('click', function(){
 
 document.querySelector("#stop").addEventListener('click', function(){
     clearInterval(change);
-})
+    change = null;
+});
